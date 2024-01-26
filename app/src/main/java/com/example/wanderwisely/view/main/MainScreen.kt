@@ -79,8 +79,7 @@ fun MainScreen(navigationController: NavHostController, viewModel: DatabaseContr
                             text = "Wander Wisely",
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Serif,
-                            fontSize = 20.sp,
-                            color = Color.Black
+                            fontSize = 20.sp
                         )
                     }
 
@@ -138,7 +137,9 @@ fun MainScreen(navigationController: NavHostController, viewModel: DatabaseContr
                         imageVector = Icons.Default.Add,
                         contentDescription = "Add"
                     )
-                }
+                },
+                containerColor = MaterialTheme.colorScheme.tertiary,
+                contentColor = MaterialTheme.colorScheme.primary
             )
         }
 

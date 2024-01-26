@@ -23,6 +23,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -56,7 +57,7 @@ fun HikingCard(route: HikingRoute, navigationController: NavHostController, view
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White,
+            containerColor = MaterialTheme.colorScheme.background
         ),
         modifier = Modifier
             .size(width = 340.dp, height = 175.dp)
@@ -70,8 +71,7 @@ fun HikingCard(route: HikingRoute, navigationController: NavHostController, view
             Text(
                 text = route.name,
                 fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black
+                fontWeight = FontWeight.Bold
             )
             // Display only a portion of the description if it exceeds 80 characters
             val shortDescription = if (route.description.length > 80) {
@@ -82,7 +82,6 @@ fun HikingCard(route: HikingRoute, navigationController: NavHostController, view
             Text(
                 text = shortDescription,
                 fontSize = 14.sp,
-                color = Color.Black,
                 modifier = Modifier
                     .padding(top = 12.dp)
             )

@@ -14,6 +14,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -64,11 +65,10 @@ fun Body(modifier: Modifier, viewModel: LoginViewModel){
 @Composable
 fun Title(){
     Text(
-        text = "Sign in",
-        fontSize = 15.sp,
+        text = "Log in",
+        fontSize = 18.sp,
         fontWeight = FontWeight.Bold,
-        fontFamily = FontFamily.SansSerif,
-        color = Color(0xFF000000)
+        fontFamily = FontFamily.SansSerif
     )
 }
 
@@ -82,7 +82,7 @@ fun Email(email: String, onTextFieldChanged: (String) -> Unit) {
         onValueChange = { onTextFieldChanged(it)
                         text = it},
         modifier = Modifier
-            .border(1.dp, Color(0xFF005897), RoundedCornerShape(5.dp))
+            .border(1.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(5.dp))
             .fillMaxWidth(),
         label={Text(text="USERNAME", fontSize = 13.sp)},
         placeholder = { Text(text = "Email") },
@@ -93,13 +93,7 @@ fun Email(email: String, onTextFieldChanged: (String) -> Unit) {
             if (text.isNotEmpty() and isValidEmail(text)) {
                 Icon(imageVector = Icons.Default.Check, contentDescription = null, modifier = Modifier.size(25.dp))
             }
-        },
-        colors = TextFieldDefaults.textFieldColors(
-            textColor = Color(0xFF000000),
-            containerColor = Color(0xFFFFFFFF),
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent
-        )
+        }
     )
 }
 
@@ -113,7 +107,7 @@ fun Password(email: String, onTextFieldChanged: (String) -> Unit) {
         onValueChange = { onTextFieldChanged(it)
             text = it},
         modifier = Modifier
-            .border(1.dp, Color(0xFF005897), RoundedCornerShape(5.dp))
+            .border(1.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(5.dp))
             .fillMaxWidth(),
         label={Text(text="PASSWORD", fontSize = 13.sp)},
         placeholder = { Text(text = "Password") },
@@ -124,13 +118,7 @@ fun Password(email: String, onTextFieldChanged: (String) -> Unit) {
             if (text.isNotEmpty()) {
                 Icon(imageVector = Icons.Default.Check, contentDescription = null, modifier = Modifier.size(25.dp))
             }
-        },
-        colors = TextFieldDefaults.textFieldColors(
-            textColor = Color(0xFF000000),
-            containerColor = Color(0xFFFFFFFF),
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent
-        )
+        }
     )
 }
 
@@ -141,13 +129,7 @@ fun LoginButton(loginEnable: Boolean, onLoginSelected: () -> Unit) {
         modifier = Modifier
             .padding(horizontal = 18.dp)
             .fillMaxWidth(),
-        shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(
-            disabledContentColor = Color.White,
-            contentColor = Color.White,
-            containerColor = Color(0xFF005897),
-            disabledContainerColor = Color(0xFF5793BB)
-        )
+        shape = RoundedCornerShape(8.dp)
     ) {
         Text(text = "Log in")
         Spacer(Modifier.size(2.dp))
@@ -162,13 +144,7 @@ fun SignupButton(loginEnable: Boolean, onLoginSelected: () -> Unit) {
         modifier = Modifier
             .padding(horizontal = 18.dp)
             .fillMaxWidth(),
-        shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(
-            disabledContentColor = Color.White,
-            contentColor = Color.White,
-            containerColor = Color(0xFF005897),
-            disabledContainerColor = Color(0xFF5793BB)
-        )
+        shape = RoundedCornerShape(8.dp)
     ) {
         Text(text = "Sign up")
         Spacer(Modifier.size(2.dp))

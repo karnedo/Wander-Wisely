@@ -30,15 +30,14 @@ fun SignUp() {
     Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
         Text(
             text = "Wander Wisely",
-            fontSize = 12.sp,
-            color = Color(0xFF000000)
+            fontSize = 12.sp
         )
         Text(
             text = "• Absolutely no Copyright",
             modifier = Modifier.padding(horizontal = 8.dp),
             fontSize = 12.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF007AD3)
+            color = Color.Blue
         )
     }
 }
