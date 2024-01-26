@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navigationController = rememberNavController()
-                    val firebaseViewModel: DatabaseController = viewModel()
+                    val firebaseViewModel: DatabaseController = DatabaseController(navigationController)
                     val hikingViewModel: NewRouteViewModel = NewRouteViewModel(navigationController)
 
                     NavHost(

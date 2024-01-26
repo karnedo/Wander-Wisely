@@ -4,6 +4,7 @@ import android.provider.ContactsContract.Data
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavHostController
 import com.example.wanderwisely.model.Coordinate
 import com.example.wanderwisely.model.HikingRoute
 import com.google.firebase.Firebase
@@ -15,7 +16,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 import java.util.concurrent.Flow
 
-class DatabaseController : ViewModel() {
+class DatabaseController(private val navController: NavHostController) : ViewModel() {
 
     private val database = Firebase.database("https://wanderwisely-348b4-default-rtdb.europe-west1.firebasedatabase.app")
     private val routeRef = database.getReference("routes")
@@ -83,6 +84,11 @@ class DatabaseController : ViewModel() {
 
             }
         })
+    }
+
+    fun signOut() {
+        FirebaseAuth.getInstance().signOut()
+        navController.navigate("LoginScreen")
     }
 
     /*fun readHikingRoutes(){

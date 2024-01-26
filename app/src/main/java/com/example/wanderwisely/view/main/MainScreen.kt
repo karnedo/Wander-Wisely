@@ -88,7 +88,7 @@ fun MainScreen(navigationController: NavHostController, viewModel: DatabaseContr
                 navigationIcon = {
                     IconButton(
                         onClick = {
-
+                            viewModel.signOut()
                         }
                     ) {
                         Icon(
