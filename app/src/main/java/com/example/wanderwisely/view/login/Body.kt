@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.util.PatternsCompat
@@ -112,6 +113,7 @@ fun Password(email: String, onTextFieldChanged: (String) -> Unit) {
         label={Text(text="PASSWORD", fontSize = 13.sp)},
         placeholder = { Text(text = "Password") },
         maxLines = 1,
+        visualTransformation = PasswordVisualTransformation(),
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
         trailingIcon = {

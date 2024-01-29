@@ -14,7 +14,7 @@ import com.example.wanderwisely.R
 
 @Composable
 fun Header(modifier: Modifier){
-    Spacer(modifier = Modifier.size(100.dp))
+    Spacer(modifier = Modifier.size(25.dp))
     val activity = LocalContext.current as Activity
     Image(
         painter = painterResource(id = R.drawable.logo),

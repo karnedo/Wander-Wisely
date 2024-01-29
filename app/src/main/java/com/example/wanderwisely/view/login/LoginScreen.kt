@@ -1,5 +1,6 @@
 package com.example.login.LoginScreen
 
+import android.content.res.Configuration
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -13,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -42,11 +44,25 @@ fun LoginScreen(viewModel: LoginViewModel){
                 .fillMaxHeight()
                 .weight(1.7f)
         ) {
-            Column (modifier = Modifier.fillMaxHeight().weight(1f)){
-                Header(Modifier.padding(start = 20.dp))
-                Body(Modifier.padding(start = 20.dp), viewModel)
+            val configuration = LocalConfiguration.current
+            when (configuration.orientation) {
+                Configuration.ORIENTATION_LANDSCAPE -> {
+                    Row (modifier = Modifier.fillMaxSize().weight(1f)){
+                        Header(Modifier.padding(start = 20.dp))
+                        Body(Modifier.padding(start = 5.dp), viewModel)
+                        Footer(Modifier.fillMaxWidth())
+                    }
+                }
+                else -> {
+                    Column (modifier = Modifier.fillMaxHeight().weight(1f)){
+                        Header(Modifier.padding(start = 20.dp))
+                        Body(Modifier.padding(start = 20.dp), viewModel)
+                    }
+                    Footer(Modifier.fillMaxWidth())
+                }
             }
-            Footer(Modifier.fillMaxWidth())
+
+
         }
     }
 
