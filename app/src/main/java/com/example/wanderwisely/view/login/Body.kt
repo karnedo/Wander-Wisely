@@ -40,8 +40,8 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Body(modifier: Modifier, viewModel: LoginViewModel){
-    val email: String by viewModel.email.observeAsState(initial = "prueba@prueba.prueba")
-    val password: String by viewModel.password.observeAsState(initial = "123456789")
+    val email: String by viewModel.email.observeAsState(initial = "")
+    val password: String by viewModel.password.observeAsState(initial = "")
     val loginEnable: Boolean by viewModel.loginEnable.observeAsState(initial = false)
 
     val coroutineScope = rememberCoroutineScope()
